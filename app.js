@@ -1,4 +1,5 @@
 var express = require("express");
+var dicebot = require('./dicebot');
 var Xerxes= require("./hellobot.js");
 var bodyParser = require("body-parser");
 
