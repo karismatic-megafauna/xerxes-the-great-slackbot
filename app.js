@@ -19,3 +19,4 @@ app.listen(port, function (){
 });
 
 app.post('/hello', Xerxes);
+app.post('/roll', dicebot);
