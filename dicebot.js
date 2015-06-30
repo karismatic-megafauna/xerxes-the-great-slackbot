@@ -51,8 +51,7 @@ function roll(min,max) {
 }
 
 function send(payload, callback) {
-  var path = process.env.INCOMING_WEBHOOK_PATH;
-  var uri = 'https://hooks.slack.com/services' + path;
+  var uri = 'https://hooks.slack.com/services/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';
 
   request({
     uri: uri,
