@@ -1,5 +1,6 @@
 var express = require("express");
 var dicebot = require('./dicebot');
+var definebot = require('./definebot');
 var Xerxes= require("./hellobot.js");
 var bodyParser = require("body-parser");
 
@@ -21,3 +22,4 @@ app.listen(port, function (){
 
 app.post('/hello', Xerxes);
 app.post('/roll', dicebot);
+app.post('/define', definebot);
