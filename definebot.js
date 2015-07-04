@@ -39,11 +39,9 @@ function getDefinition (word) {
   .header("Accept", "application/json")
   .end(function (result) {
     myDefinitions = result.body.definitions;
-    myDefinition = myDefinitions[Math.floor(Math.random() * myDefinitions.length)].definition;
+    return myDefinition = myDefinitions[Math.floor(Math.random() * myDefinitions.length)].definition;
   });
   console.log(Request);
-  console.log(Request[0]);
-  console.log(Request[1]);
 
   return Request;
 }
