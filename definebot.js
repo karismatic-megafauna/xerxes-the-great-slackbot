@@ -37,12 +37,13 @@ function getDefinition (word) {
   .header("X-Mashape-Key", "4iIoBDDoMimshMEHtO27Qzs1stjbp1j1yUmjsnVk4z1UHPtrab")
   .header("Accept", "application/json")
   .end(function (result) {
+    var Result = result;
     myDefinitions = result.body.definitions;
     myDefinition = myDefinitions[Math.floor(Math.random() * myDefinitions.length)].definition;
     console.log(result.status, result.headers, result.body);
   });
-
-  return myDefinition;
+  
+  return Result;
 }
 
 function send (payload, callback) {
