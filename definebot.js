@@ -32,18 +32,17 @@ module.exports = function (req, res, next) {
 function getDefinition (word) {
   var requestString = "https://wordsapiv1.p.mashape.com/words/" + word + "/definitions";
   var myDefinition, myDefinitions;
-  var Request;
 
-  Request = unirest.get(requestString)
+  unirest.get(requestString)
   .header("X-Mashape-Key", "4iIoBDDoMimshMEHtO27Qzs1stjbp1j1yUmjsnVk4z1UHPtrab")
   .header("Accept", "application/json")
   .end(function (result) {
     myDefinitions = result.body.definitions;
-    return myDefinition = myDefinitions[Math.floor(Math.random() * myDefinitions.length)].definition;
+    myDefinition = myDefinitions[Math.floor(Math.random() * myDefinitions.length)].definition;
+    console.log(result.status, result.headers, result.body);
   });
-  console.log(Request);
 
-  return Request;
+  return myDefinition;
 }
 
 function send (payload, callback) {
