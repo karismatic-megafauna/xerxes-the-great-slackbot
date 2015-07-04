@@ -34,12 +34,12 @@ function getDefinition (word) {
   var myDefinition, myDefinitions;
   var wat;
 
-  unirest.get(requestString)
+  return wat = unirest.get(requestString)
   .header("X-Mashape-Key", "4iIoBDDoMimshMEHtO27Qzs1stjbp1j1yUmjsnVk4z1UHPtrab")
   .header("Accept", "application/json")
   .end(function (result) {
     myDefinitions = result.body.definitions;
-    return myDefinition = myDefinitions[Math.floor(Math.random() * myDefinitions.length)].definition;
+    myDefinition = myDefinitions[Math.floor(Math.random() * myDefinitions.length)].definition;
   });
 
 }
