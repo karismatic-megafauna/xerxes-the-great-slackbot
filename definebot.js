@@ -4,11 +4,12 @@ var request = require('request');
 module.exports = function (req, res, next) {
   var botPayload = {};
   var definedWord, definedWords;
+  var wordToDefine = req.body.text;
   if (!req.body.text) {
     return res.status(200).send('whops, something went wrong, annoy Michael');
   }
 
-  var requestString = "https://wordsapiv1.p.mashape.com/words/" + req.body.text + "/definitions";
+  var requestString = "https://wordsapiv1.p.mashape.com/words/" + wordToDefine + "/definitions";
 
   unirest.get(requestString)
   .header("X-Mashape-Key", "4iIoBDDoMimshMEHtO27Qzs1stjbp1j1yUmjsnVk4z1UHPtrab")
@@ -17,7 +18,7 @@ module.exports = function (req, res, next) {
     definedWords = result.body.definitions;
     definedWord = definedWords[Math.floor(Math.random() * definedWords.length)].definition;
 
-    botPayload.text = 'The definition of ' + req.body.text + ' is: \n' +
+    botPayload.text = 'The definition of *' + wordToDefine + '* is: \n' +
       '&gt; ' + definedWord;
     botPayload.channel = req.body.channel_id;
 
