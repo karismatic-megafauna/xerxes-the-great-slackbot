@@ -17,8 +17,8 @@ module.exports = function (req, res, next) {
     definedWords = result.body.definitions;
     definedWord = definedWords[Math.floor(Math.random() * definedWords.length)].definition;
 
-    botPayload.text = req.body.user_name + ', the definition of ' + req.body.text + ' is: ' +
-      definedWord;
+    botPayload.text = 'The definition of ' + req.body.text + ' is: \n' +
+      '&gt ' + definedWord;
     botPayload.channel = req.body.channel_id;
 
     send(botPayload, function (error, status, body) {
