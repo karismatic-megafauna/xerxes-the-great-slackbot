@@ -8,7 +8,7 @@ module.exports = function (req, res, next) {
     return res.status(200).send('whops, something went wrong, annoy Michael');
   }
 
-
+  //all you little shits under here need to go in the unirest end callback. dang...
   definedWord = getDefinition(req.body.text);
   botPayload.text = req.body.user_name + ', the definition of ' + req.body.text + ' is: ' +
     definedWord;

@@ -12,6 +12,5 @@ unirest.get(requestString)
 .end(function (result) {
   var definitions = result.body.definitions;
   var definition = definitions[Math.floor(Math.random() * definitions.length)].definition;
-  // send this info back to slack (incoming webhooks)
-  console.log(definition);
+  //start your callback hell here, send should be called from here...yikes
 });
