@@ -9,6 +9,7 @@ module.exports = function (req, res, next) {
   }
 
 
+  getDefinition(req.body.text).then(function(val){console.log(val)});
   definedWord = getDefinition(req.body.text);
   botPayload.text = req.body.user_name + ', the definition of ' + req.body.text + ' is: ' +
     definedWord;
@@ -30,6 +31,10 @@ module.exports = function (req, res, next) {
 };
 
 function getDefinition (word) {
+  var p1 = new Promise( function( resolve , reject ) {
+    resolve('balls');
+  });
+  return p1;
   var requestString = "https://wordsapiv1.p.mashape.com/words/" + word + "/definitions";
   var myDefinition, myDefinitions;
 
@@ -37,13 +42,10 @@ function getDefinition (word) {
   .header("X-Mashape-Key", "4iIoBDDoMimshMEHtO27Qzs1stjbp1j1yUmjsnVk4z1UHPtrab")
   .header("Accept", "application/json")
   .end(function (result) {
-    var Result = result;
     myDefinitions = result.body.definitions;
     myDefinition = myDefinitions[Math.floor(Math.random() * myDefinitions.length)].definition;
-    console.log(result.status, result.headers, result.body);
   });
-  
-  return Result;
+  return p1;
 }
 
 function send (payload, callback) {
